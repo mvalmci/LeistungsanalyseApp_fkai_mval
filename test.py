@@ -1,26 +1,16 @@
-from my_classes import Subject, Supervisor, Experiment
+from my_classes import Supervisor, Subject, Experiment
 from datetime import datetime
 
 if __name__ == "__main__":
-
     # Erstellen eines Leistungstests
-    supervisor = Supervisor("FirstName", "LastName")
-    subject = Subject("FirstName", "LastName", "female", 30)
-    subject.estimate_max_hr()
+    supervisor = Supervisor("Marius", "Valenta", "2005-05-22")
+    subject = Subject("Max", "Mustermann", "2000-03-22", "male")
+    
 
-    experiment = Experiment("Leistungstest", datetime.now())
+    experiment = Experiment("Leistungstest", datetime.now().date())
     experiment.add_subject(subject)
     experiment.add_supervisor(supervisor)
 
-    print(experiment.name)
-    print(experiment.date)
-    print('Subject:')
-    print(experiment.subject.first_name)
-    print(experiment.subject.last_name)
-    print('Supervisor:')
-    print(experiment.supervisor.first_name)
-    print(experiment.supervisor.last_name)
-    print('Maximal Herzfrequenz:')
-    print(subject.estimate_max_hr())
-
-    
+    print(experiment)
+    print(f"Versuchsleiter: {supervisor.first_name} {supervisor.last_name}")
+    print(f"Estimatet max HR der Versuchsperson: {subject.estimate_max_hr()}")
