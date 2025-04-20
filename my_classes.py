@@ -1,4 +1,6 @@
 from datetime import date
+import requests
+import json
 
 class Person:
     def __init__(self, first_name, last_name, birth_date):
@@ -11,7 +13,30 @@ class Person:
         birth_date = date.fromisoformat(self.__birth_date)
         age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
         return age
+    
+    def put(self,id,first_name, last_name,birth_year):
+        '''self.id = id
+        self.first_name = first_name
+        self.last_name = last_name
+        self.__birth_year = birth_year'''
 
+        url = f"http://127.0.0.1:5000/person/123"
+
+        data = {
+            "id": 123,
+            "first_name": first_name,
+            "last_name": last_name,
+            "birth_year": birth_year
+        }
+
+        #daten in JSON umwandeln
+        data_json = json.dumps(data)
+
+        #POST request an die URL senden
+        response = request.put(url, data=data_json)
+
+        #Antwort ausgeben
+        print(response.text)
 
 class Subject(Person):
     def __init__(self, first_name, last_name, birth_date, sex):
