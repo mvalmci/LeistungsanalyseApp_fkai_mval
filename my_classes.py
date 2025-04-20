@@ -38,7 +38,8 @@ class Person:
         print(response.text)
 
 class Subject(Person):
-    def __init__(self, first_name, last_name, birth_date, sex):
+    def __init__(self, first_name, last_name, birth_date, sex, email):
+        self.email = email
         super().__init__(first_name, last_name, birth_date)
         self.sex = sex
 
@@ -49,6 +50,20 @@ class Subject(Person):
         else:
             max_hr = 220 - age
         return max_hr
+    
+    
+    def update_email(self, new_email):
+        self.email = new_email
+        url = f"http://127.0.0.1:5000/person/123"
+        data = {
+            "email": new_email
+        }
+        #daten in JSON umwandeln
+        data_json = json.dumps(data)
+
+        #POST request an die URL senden
+        response = request.put(url, json=data)
+
 
 
 class Supervisor(Person):
