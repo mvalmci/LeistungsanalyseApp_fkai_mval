@@ -4,7 +4,7 @@ from datetime import datetime
 if __name__ == "__main__":
     # Erstellen eines Leistungstests
     supervisor = Supervisor("Marius", "Valenta", "2005-05-22")
-    subject = Subject("Max", "Mustermann", "2000-03-22", "male")
+    subject = Subject("Max", "Mustermann", "2000-03-22", "male", "max.mustermann@mci4me.at")
     
 
     experiment = Experiment("Leistungstest", datetime.now().date())
