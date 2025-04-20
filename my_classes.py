@@ -1,5 +1,6 @@
 from datetime import date
 import requests
+from requests import request
 import json
 
 class Person:
@@ -15,17 +16,15 @@ class Person:
         return age
     
     def put(self,id,first_name, last_name,birth_year):
-        '''self.id = id
+        self.id = id
         self.first_name = first_name
-        self.last_name = last_name
-        self.__birth_year = birth_year'''
+        self.__birth_year = birth_year
 
         url = f"http://127.0.0.1:5000/person/123"
 
         data = {
-            "id": 123,
+            "id": id,
             "first_name": first_name,
-            "last_name": last_name,
             "birth_year": birth_year
         }
 
